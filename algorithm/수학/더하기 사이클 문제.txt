@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class Main {
+	Main(){
+		Scanner scanner = new Scanner(System.in);
+		int k,a=scanner.nextInt();
+		
+		int q=a;
+		int i=0;
+		String g,b = Integer.toString(a);
+		char c,d,e,f;
+		while(true){
+			if(a<10){
+				c = 0;
+				d = b.charAt(0);
+				k=(int)d-48;
+			}
+			else{
+				c = b.charAt(0);
+				d = b.charAt(1);
+				k=(int)c+(int)d-96;
+			}
+
+			g = Integer.toString(k); //k문제
+			if(k<10){
+				e = 0;
+				f = g.charAt(0);
+			}
+			else{
+				e = g.charAt(0);
+				f = g.charAt(1); // e f c 문제
+			}
+			
+			a=(((int)d-48)*10)+((int)f-48);
+			b = Integer.toString(a);
+			i++;
+			
+			if(q==a)
+				break;
+		}
+		System.out.print(i);
+	}
+	
+	public static void main(String ar[]){
+		new Main();
+	}
+}

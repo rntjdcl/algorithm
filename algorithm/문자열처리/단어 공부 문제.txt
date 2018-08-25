@@ -1,0 +1,32 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+	public static void main(String ar[]){
+		Scanner scanner = new Scanner(System.in);
+		String k=scanner.next();
+		int a[]=new int[26];
+		int max=-1;
+		int same=-1;
+		int r=-1;
+		
+		for(int i=0; i<k.length(); i++){
+			if((int)k.charAt(i)>=97)
+				a[(int)k.charAt(i)-97]++;
+			else
+				a[(int)k.charAt(i)-65]++;
+		}
+		for(int i=0; i<26; i++){
+			if(a[i]>max){
+				max=a[i];
+				r=i;
+			}
+			else if(a[i]==max)
+				same=a[i];
+		}
+		if(same==max)
+			System.out.println("?");
+		else
+			System.out.println((char)(r+65));
+	}
+}

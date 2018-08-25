@@ -1,0 +1,39 @@
+import java.io.*;
+import java.math.BigInteger;
+import java.util.*;
+
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+      Scanner scanner = new Scanner(System.in);
+      int k = scanner.nextInt();
+      int stack=0;
+      int check=100;
+      for(int j=0; j<k; j++){
+    	  String n = scanner.next();
+	      for(int i=0; i<n.length(); i++){
+	    	  if(n.charAt(i)=='('){
+	    		  stack++;
+	    	  }
+	    	  else if(n.charAt(i)==')'){
+	    		  stack--;
+	    		  if(stack<0){
+	    			  check=0;
+	    			  break;
+	    		  }
+	    	  }
+	      }
+	      if(stack==0)
+	    	  check=1;
+	      
+	      if(check==1)
+	    	  System.out.println("YES");
+	      else
+	    	  System.out.println("NO");
+	      
+	      stack=0;
+	      check=100;
+      }
+   }
+}

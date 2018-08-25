@@ -1,0 +1,48 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <algorithm>
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+struct Person {
+	int korean;
+	int english;
+	int math;
+	string name;
+};
+bool cmp(const Person &u, const Person &v) {
+	if (u.korean > v.korean) {
+		return true;
+	}
+	else if (u.korean == v.korean) {
+		if (u.english < v.english){
+			return true;
+		}
+		else if (u.english == v.english) {
+			if (u.math > v.math) {
+				return true;
+			}
+			else if (u.math == v.math) {
+				return u.name < v.name;
+			}
+		}
+	}	
+	return false;
+}
+int main()
+{
+	int n;
+	cin >> n;
+
+	vector<Person> a(n);
+	for (int i = 0; i < n; i++) {
+		cin >> a[i].name >> a[i].korean >> a[i].english >> a[i].math;
+	}
+
+	sort(a.begin(), a.end(), cmp); //°¨¼Ò
+
+	for (int i = 0; i < n; i++)
+		cout << a[i].name << '\n';
+
+	return 0;
+}

@@ -1,0 +1,28 @@
+import java.io.*;
+import java.math.BigInteger;
+import java.util.*;
+
+public class Main {
+
+	public static void main(String ar[]){
+		Scanner scanner = new Scanner(System.in);
+		long a[][]=new long[30][30];
+		
+		for(int i=0; i<30; i++){
+			a[0][i]=1;
+			a[i][0]=i+1;
+		}
+		for(int i=1; i<30; i++){
+			for(int j=1; j<30; j++){
+				a[i][j]=a[i][j-1]+a[i-1][j];
+			}
+		}
+		
+		int k = scanner.nextInt();
+		for(int i=0; i<k; i++){		
+			int n = scanner.nextInt();
+			int m = scanner.nextInt();
+			System.out.println(a[m-n][n-1]);	
+		}
+	}
+}

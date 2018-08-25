@@ -1,0 +1,43 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+	public static void main(String ar[]){
+		Scanner sc = new Scanner(System.in);
+		int a[]=new int[9];
+		int k[]=new int[7];
+		for(int i=0; i<9; i++)
+			a[i]=sc.nextInt();
+		int sum=0;
+		for(int i=0; i<9; i++)
+			sum+=a[i];
+		int minus=sum-100;
+		int minus1=0;
+		int b=100,c=100;
+		for(int i=0; i<8; i++){
+			for(int j=i+1; j<9; j++){
+				minus1=a[i]+a[j];
+				if(minus==minus1){
+					b=i;
+					c=j;
+				}
+			}
+		}
+		int r=0;
+		for(int i=0; i<9; i++)
+			if(i!=c&&i!=b){
+				k[r]=a[i];
+				r++;
+			}
+		
+		for(int i=0; i<7; i++)
+			for(int j=i+1; j<7; j++)	
+				if(k[i]>k[j]){
+					int temp=k[i];
+					k[i]=k[j];
+					k[j]=temp;
+				}
+		for(int i=0; i<7; i++)
+			System.out.println(k[i]);
+	}
+}

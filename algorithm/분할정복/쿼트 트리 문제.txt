@@ -1,0 +1,49 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <algorithm>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cstdio>
+#include <cmath>
+#include <queue>
+using namespace std;
+int a[64][64];
+int cnt[3];
+int check(int x, int y, int n) {
+	for (int i = x; i < x + n; i++) {
+		for (int j = y; j < y + n; j++) {
+			if (a[i][j] != a[x][y])
+				return 2;
+		}
+	}
+	return a[x][y];
+}
+void solve(int x, int y, int n) {
+	int m = n / 2;
+	if (check(x, y, n) == 1 || check(x, y, n) == 0) {
+		int k = check(x, y, n);
+		printf("%d", k);
+	}
+	else {
+		printf("(");
+		for (int i = 0; i < 2; i++) {
+			for (int j = 0; j < 2; j++) {
+				solve(x + i*m, y + j*m, m);
+			}
+		}
+		printf(")");
+	}
+}
+int main() {
+	ios::sync_with_stdio(false);
+	int n, x = 0, y = 0;
+	scanf("%d", &n);
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			scanf("%1d", &a[i][j]);
+		}
+	}
+	solve(x, y, n);
+
+	return 0;
+}

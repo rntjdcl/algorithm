@@ -1,0 +1,19 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+	public static void main(String ar[]){
+		Scanner scanner = new Scanner(System.in);
+		String k=scanner.next();
+		int []alpa=new int[26];
+		for(int i=0; i<26; i++){
+			alpa[i]=-1;
+		}
+		for(int i=0; i<k.length(); i++){
+			if(alpa[k.charAt(i)-97]==-1)
+				alpa[k.charAt(i)-97]=i;
+		}
+		for(int i=0; i<26; i++)
+			System.out.print(alpa[i]+" ");
+	}
+}

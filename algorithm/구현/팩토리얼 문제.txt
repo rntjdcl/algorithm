@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class Main {
+	Main(){
+		Scanner scanner = new Scanner(System.in);
+		int a = scanner.nextInt();
+		int c=1;
+		
+		for(int i=a; i>0; i--){
+			c=c*i;
+		}
+		
+		System.out.println(c);
+	}
+	
+	public static void main(String ar[]){
+		new Main();
+	}
+}

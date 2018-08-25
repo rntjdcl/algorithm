@@ -1,0 +1,14 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+	public static void main(String ar[]){
+		Scanner scanner = new Scanner(System.in);
+		int m=scanner.nextInt();
+		int n=scanner.nextInt();
+		int sum=m*n;
+		System.out.println(sum-1);
+
+	}
+}

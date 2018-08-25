@@ -1,0 +1,29 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+	public static void main(String ar[]){
+		Scanner scanner = new Scanner(System.in);
+		int n=scanner.nextInt();
+		int r[][]=new int[n][n];
+		for(int i=0; i<n; i++)
+			for(int j=0; j<n; j++){
+				r[i][j]=scanner.nextInt();
+				if(r[i][j]==0)
+					r[i][j]=100;
+			}
+		for(int k=0; k<n; k++)
+			for(int i=0; i<n; i++)
+				for(int j=0; j<n; j++)
+					if(r[i][j]>r[i][k]+r[k][j])
+						r[i][j]=r[i][k]+r[k][j];
+			
+		
+		for(int i=0; i<n; i++){
+			for(int j=0; j<n; j++)
+				System.out.printf("%d ",r[i][j]==100? 0:1);
+			System.out.println();
+		}
+	}
+}

@@ -1,0 +1,46 @@
+import java.io.*;
+import java.math.BigInteger;
+import java.util.*;
+
+import java.util.Scanner;
+
+public class Main {
+   public static void main(String[] args) {
+      Scanner scanner = new Scanner(System.in);
+      
+      int n = scanner.nextInt();
+      int b = 1;
+      int a[][]=new int[n][n];
+      for(int i=0; i<n; i++){
+    	  for(int j=0; j<b; j++){
+    		  a[i][j]=scanner.nextInt();
+    	  }
+    	  b++;
+      }
+      b=2;
+      for(int i=1; i<n; i++){
+    	  for(int j=0; j<b; j++){ //j=0 j=b-1
+    		  if(j==0){
+    			  a[i][j]+=a[i-1][j];
+    		  }
+    		  else if(j==b-1){
+    			  a[i][j]+=a[i-1][j-1];
+    		  }
+    		  else{
+    			  if(a[i-1][j-1]>a[i-1][j])
+    				  a[i][j]+=a[i-1][j-1];
+    			  else
+    				  a[i][j]+=a[i-1][j];
+    		  }
+    	  }
+    	  b++;
+      }
+      int max=a[n-1][0];
+      for(int i=1; i<n; i++){
+    	  if(max<a[n-1][i])
+    		  max=a[n-1][i];
+      }
+    	  
+      System.out.println(max);
+   }
+}

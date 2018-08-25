@@ -1,0 +1,36 @@
+import java.io.*;
+import java.math.BigInteger;
+import java.util.*;
+
+import java.util.Scanner;
+
+public class Main {
+	static boolean a[];
+	static boolean b[];
+	static boolean c[];
+	static int sum=0;
+	static int n;
+	static void NQueen(int r){
+		if(r>n){
+			sum++;
+			return;
+		}
+		for(int i=1; i<=n; i++){
+			if(!a[i]&&!b[r+i]&&!c[n+(r-i)+1]){
+				a[i]=b[r+i]=c[n+(r-i)+1]=true;
+				NQueen(r+1);
+				a[i]=b[r+i]=c[n+(r-i)+1]=false;
+			}
+		}
+	}
+	public static void main(String[] args) {
+      Scanner scanner = new Scanner(System.in);
+      n = scanner.nextInt();
+      a=new boolean[16];
+      b=new boolean[31];
+      c=new boolean[31];
+      NQueen(1);
+      
+      System.out.println(sum);
+   }
+}
